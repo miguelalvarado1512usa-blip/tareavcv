@@ -12,7 +12,7 @@ function addTask() {
   
   // Texto de la tarea (hacer clic para marcar como hecha)
   const span = document.createElement('span');
-  span.textContent =`[sapo] ${taskText}`;
+  span.textContent =`mamaguevo${taskText}`;
   
   span.addEventListener('click', () => {
     li.classList.toggle('completed');
