@@ -30,6 +30,9 @@ function addTask() {
   deleteBtn.className = 'delete-btn';
   deleteBtn.addEventListener('click', () => {
     li.remove();
+  // Restamos 1 si borras la tarea
+    totalCagadas--;
+    totalCountElement.textContent = `Total acumulado: 💩 ${totalCagadas}`;
   });
 
   li.appendChild(span);
