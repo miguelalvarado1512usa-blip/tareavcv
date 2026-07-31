@@ -2,12 +2,18 @@ const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
 
+let totalCagadas = 0;
+
 addBtn.addEventListener('click', addTask);
 
 function addTask() {
   const taskText = taskInput.value.trim();
   if (taskText === '') return;
 
+  totalCagadas++;
+
+  totalCountElement.textContent = `Total acumulado: 💩 ${totalCagadas}`;
+  
   const li = document.createElement('li');
   
   // Texto de la tarea (hacer clic para marcar como hecha)
