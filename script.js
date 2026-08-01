@@ -1,6 +1,9 @@
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
+const totalCountElement = document.getElementById('totalCount');
+
+let total =0;
 
 addBtn.addEventListener('click', addTask);
 
@@ -8,11 +11,16 @@ function addTask() {
   const taskText = taskInput.value.trim();
   if (taskText === '') return;
 
+  totalCagadas++;
+  if (totalCountElement) {
+    totalCountElement.textContent = `Total acumulado: 💩 ${totalCagadas}`;
+  }
+
   const li = document.createElement('li');
   
   // Texto de la tarea (hacer clic para marcar como hecha)
   const span = document.createElement('span');
-  span.textContent =`[se que la paja anotala pa por las mavinas] ${taskText}`;
+  span.textContent =`[Una mas para la arrechera] ${taskText}`;
   span.addEventListener('click', () => {
     li.classList.toggle('completed');
   });
@@ -23,6 +31,10 @@ function addTask() {
   deleteBtn.className = 'delete-btn';
   deleteBtn.addEventListener('click', () => {
     li.remove();
+     totalCagadas--;
+    if (totalCountElement) {
+      totalCountElement.textContent = `Total acumulado: 💩 ${totalCagadas}`;
+    }
   });
 
   li.appendChild(span);
