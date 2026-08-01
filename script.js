@@ -3,7 +3,8 @@ const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
 const totalCountElement = document.getElementById('totalCount');
 
-let total =0;
+// AQUÍ SE DECLARA LA VARIABLE (Sin esto sale el error "not defined")
+let totalCagadas = 0;
 
 addBtn.addEventListener('click', addTask);
 
@@ -11,6 +12,7 @@ function addTask() {
   const taskText = taskInput.value.trim();
   if (taskText === '') return;
 
+  // Sumar 1 al contador
   totalCagadas++;
   if (totalCountElement) {
     totalCountElement.textContent = `Total acumulado: 💩 ${totalCagadas}`;
@@ -18,9 +20,10 @@ function addTask() {
 
   const li = document.createElement('li');
   
-  // Texto de la tarea (hacer clic para marcar como hecha)
   const span = document.createElement('span');
-  span.textContent =`[Una mas para la arrechera] ${taskText}`;
+  span.textContent = `💩 [sapo] ${taskText}`;
+  
+  // Marcar como completada
   span.addEventListener('click', () => {
     li.classList.toggle('completed');
   });
@@ -29,9 +32,11 @@ function addTask() {
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'X';
   deleteBtn.className = 'delete-btn';
+  
   deleteBtn.addEventListener('click', () => {
     li.remove();
-     totalCagadas--;
+    // Restar 1 al contador si borras la tarea
+    totalCagadas--;
     if (totalCountElement) {
       totalCountElement.textContent = `Total acumulado: 💩 ${totalCagadas}`;
     }
